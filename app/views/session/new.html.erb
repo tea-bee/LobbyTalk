@@ -1,0 +1,17 @@
+﻿<h1>ログインフォーム</h1>
+
+<%= form_tag do %>
+  <div class="field">
+    <%= label_tag :account, "ID" %><br>
+    <%= text_field_tag :account, params[:acount] %>
+  </div>
+  <div class="field">
+    <%= label_tag :password, "パスワード" %>:<br>
+    <%= password_field_tag :password, params[:password] %>
+  </div>
+  <div>
+    <%= submit_tag "ログイン" %>
+  </div>
+<% end %>
+
+<%= link_to 'トップへ', users_path %>

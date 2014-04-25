@@ -1,0 +1,37 @@
+﻿<h1>ユーザ名簿</h1>
+  <% if notice %>
+  <p id="notice"><%= notice %></p>
+  <% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>メールアドレス</th>
+      <th>パスワード</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.account %></td>
+        <td><%= user.e_mail %></td>
+        <td><%= user.password_digest %></td>
+        <td><%= link_to '詳細表示', user %></td>
+        <td><%= link_to '変更', edit_user_path(user) %></td>
+        <td><%= link_to '削除', user, method: :delete, data: { confirm: ' 削除してもよろしいですか？' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新規作成', new_user_path %>
+<% if session[:user_id] == nil %>
+  <%= link_to "ログイン", login_url %>
+<% else %>
+  <%= link_to 'ログアウト', logout_path, method: :delete, data: { confirm: 'ログアウトしますか？' } %>
+<% end %>
