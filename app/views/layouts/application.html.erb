@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>LobbyTalk</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+	  <title>LobbyTalk</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
+		<%# layouts/_header.html.erb--ヘッダーを表示 %>
+		<%= render 'layouts/header' %>
 
-<%= yield %>
-
-</body>
+		<%# アプリケーションを固定長で表示 %>
+		<div class="container"> 
+			<%= yield %>
+			<%# layouts/_footer.html.erb--フッターを表示 %>
+      		<%= render 'layouts/footer' %>
+		</div>
+	</body>
 </html>

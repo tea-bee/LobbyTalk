@@ -30,8 +30,3 @@
 <br>
 
 <%= link_to '新規作成', new_user_path %>
-<% if session[:user_id] == nil %>
-  <%= link_to "ログイン", login_url %>
-<% else %>
-  <%= link_to 'ログアウト', logout_path, method: :delete, data: { confirm: 'ログアウトしますか？' } %>
-<% end %>

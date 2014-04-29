@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   private
 
     def authorize
-      unless  User.find_by_id(session[:user_id])
+      unless  User.find_by_id(session[:user_id]) then
       	redirect_to login_url, notice: "ログインしてください"
       end
     end

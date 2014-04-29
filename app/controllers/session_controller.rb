@@ -11,7 +11,7 @@ class SessionController < ApplicationController
       session[:user_id] = user.id
       redirect_to user    # userを解析し、'/users/:id'にリダイレクト
     else
-      redirect_to login_path, alart: "無効なユーザ名/パスワードの組み合わせです。"
+      redirect_to login_path, alert: "無効なユーザ名/パスワードの組み合わせです。"
     end
   end
 

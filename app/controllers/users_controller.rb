@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :authorize , only: [:new, :create, :show]
   # GET /users
   # GET /users.json
   def index
@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @users = User.find(params[:id])
   end
 
   # GET /users/new
@@ -30,6 +31,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        session[:user_id] = @user.id
         format.html { redirect_to @user, notice: "ユーザを作成しました。" }
         format.json { render json: @user, status: :created, location: @user }
       else

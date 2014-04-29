@@ -1,5 +1,9 @@
 ﻿<h1>ログインフォーム</h1>
 
+<% if flash[:alert] %>
+<p><%= flash[:alert] %></p>
+<% end %>
+
 <%= form_tag do %>
   <div class="field">
     <%= label_tag :account, "ID" %><br>
@@ -14,4 +18,4 @@
   </div>
 <% end %>
 
-<%= link_to 'トップへ', users_path %>
+<%= link_to 'トップへ', tops_index_path %>
